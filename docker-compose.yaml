@@ -1,17 +1,19 @@
 version: '3.8'
 services:
   apitut:
-    build: ./api
+    build: ./nodejs-docker
     container_name: api_c
     ports:
       - '4000:4000'
     volumes:
-      - ./api:/app
+      - ./nodejs-docker:/app
       - ./app/node_modules
   myblog:
-    build: ./docker-test
+    build: ./react-docker
     container_name: react_c
     ports:
       - '3000:3000'
+    volumes:
+      - ./react-docker:/app
     stdin_open: true
     tty: true
